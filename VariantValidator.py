@@ -7,8 +7,8 @@ print('****************************')
 
 import requests
 
-file = '/media/jbogoin/Sep2020-JGB/Donnees_brutes/hg19/Metabo/variants_introniques_17062021/15920_ABCC8intronique.csv'
-output = '/media/jbogoin/Sep2020-JGB/Donnees_brutes/hg19/Metabo/variants_introniques_17062021/15920_ABCC8intronique_genomique.txt'
+file = '/media/jbogoin/Sep2020-JGB/Donnees_brutes/hg19/Metabo/variants_introniques/15814_ABCC8intronique.csv'
+output = '/media/jbogoin/Sep2020-JGB/Donnees_brutes/hg19/Metabo/variants_introniques/15814_genomique.txt'
 input_list = []
 output_list = []
 

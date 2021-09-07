@@ -1,8 +1,8 @@
 import pandas
 import numpy
 
-entree = '15920_ABCC8intronique_snp.txt'
-sortie = './SpliceAI/15920_ABCC8intronique_genomique_vcf_format.csv'
+entree = '15814_ABCC8intronique_snp.txt'
+sortie = './SpliceAI/15814_ABCC8intronique_genomique_vcf_format.csv'
 chromosome = '11'
 
 dfi = pandas.read_csv(entree, sep='\t', names=['g','c'])
@@ -26,5 +26,5 @@ vcf['FILTER'] = '.'
 vcf['INFO'] = '.'
 vcf.to_csv(sortie, sep='\t', header=False, index=False)
 
-print('\n' + sortie + 'genere\n')
+print('\n' + sortie + ' genere !\n')
 
