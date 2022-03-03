@@ -7,23 +7,26 @@ print('****************************')
 
 import requests
 
-file = '/media/jbogoin/Sep2020-JGB/Donnees_brutes/hg19/Metabo/variants_introniques/15814_ABCC8intronique.csv'
-output = '/media/jbogoin/Sep2020-JGB/Donnees_brutes/hg19/Metabo/variants_introniques/15814_genomique.txt'
-input_list = []
-output_list = []
+file = '15920_vv_input.txt'
+output = '15920_vv_output.txt'
 
 fichier = open(output, "a")
 
 with open(file, 'r') as filin:
     
     for variant_description in filin:
+
+        print(variant_description)
     
-        link = 'https://rest.variantvalidator.org/' + '/VariantValidator/variantvalidator/' \
-            + 'hg19/' + variant_description + '/NM_001287174.1'
+        link = 'https://rest.variantvalidator.org' + \
+            '/VariantValidator/variantvalidator/hg19/' + \
+            variant_description + '/NM_001287174.1'
 
         r = requests.get(link)
 
         if r.status_code == 200:
+
+            print('VV ok\n')
             
             rd = r.json()
 
@@ -32,7 +35,8 @@ with open(file, 'r') as filin:
                     fichier.write(rd[cle]['primary_assembly_loci']['hg19']['hgvs_genomic_description'] \
                      + '\t' + cle + '\n')
 
-        elif response.status_code == 404:
+        elif r.status_code == 404:
+            
             print('Not Found.')
 
 fichier.close()
